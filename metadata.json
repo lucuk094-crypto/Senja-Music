@@ -1,0 +1,6 @@
+{
+  "name": "Senja Musik",
+  "description": "Aplikasi streaming musik modern bernuansa ambient glassmorphism dengan metadata YouTube Music, sinkronisasi lirik, dan pemutar audio iframe terintegrasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

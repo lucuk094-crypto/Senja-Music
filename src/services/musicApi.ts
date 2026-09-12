@@ -9,7 +9,11 @@ import { cachedFetch, generateCacheKey } from "../utils/apiCache";
 
 const metaEnv = (import.meta as any).env || {};
 const isDevelopment = metaEnv.DEV;
-export const API_BASE_URL = isDevelopment ? 'http://localhost:3000' : '';
+
+// Support both VITE_ prefix (dev) and regular env var (prod)
+export const API_BASE_URL = metaEnv.VITE_API_BASE_URL || 
+                             (typeof window !== 'undefined' && (window as any).__API_BASE_URL__) ||
+                             (isDevelopment ? 'http://localhost:3000' : '');
 
 console.log('🌍 Environment:', isDevelopment ? 'Development' : 'Production');
 console.log('🔗 API Base:', API_BASE_URL || 'Same Origin (Vercel)');

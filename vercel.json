@@ -2,6 +2,10 @@
   "version": 2,
   "routes": [
     {
+      "src": "/api/_config",
+      "dest": "/api/_config.ts"
+    },
+    {
       "src": "/api/yt/feed",
       "dest": "/api/feed.ts"
     },
@@ -14,20 +18,12 @@
       "dest": "/api/lyrics.ts"
     },
     {
-      "src": "/api/_config",
-      "dest": "/api/_config.ts"
-    },
-    {
       "src": "/assets/(.*)",
-      "dest": "/dist/assets/$1"
-    },
-    {
-      "src": "/(.*\\..+)",
-      "dest": "/dist/$1"
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/index.html"
+      "dest": "/$1"
     }
   ],
   "buildCommand": "npm run vercel-build",

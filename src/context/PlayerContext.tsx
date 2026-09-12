@@ -221,7 +221,8 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Fetch feed from backend server
   useEffect(() => {
     let isMounted = true;
-    fetch("/api/yt/feed")
+    const apiBase = (window as any).__API_BASE_URL__ || '';
+    fetch(`${apiBase}/api/yt/feed`)
       .then((res) => res.json())
       .then((response) => {
         if (isMounted && response && !response.error) {
@@ -497,8 +498,9 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const titleParam = encodeURIComponent(currentTrack.originalTitle || currentTrack.title);
     const artistParam = encodeURIComponent(currentTrack.artist);
     const videoIdParam = encodeURIComponent(currentTrack.id);
+    const apiBase = (window as any).__API_BASE_URL__ || '';
 
-    fetch(`/api/yt/lyrics?title=${titleParam}&artist=${artistParam}&videoId=${videoIdParam}`, {
+    fetch(`${apiBase}/api/yt/lyrics?title=${titleParam}&artist=${artistParam}&videoId=${videoIdParam}`, {
       signal: controller.signal,
     })
       .then((res) => res.json())

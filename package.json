@@ -8,7 +8,7 @@
     "build": "vite build",
     "vercel-build": "vite build",
     "start": "tsx server.ts",
-    "railway-build": "npm install",
+    "railway-build": "npm install && npm run build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"

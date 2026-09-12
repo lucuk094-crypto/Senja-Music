@@ -8,7 +8,11 @@ import { cachedFetch, generateCacheKey } from "../utils/apiCache";
  */
 
 const metaEnv = (import.meta as any).env || {};
-export const API_BASE_URL = (metaEnv.VITE_API_BASE_URL || "").replace(/\/+$/, "");
+const isDevelopment = metaEnv.DEV;
+export const API_BASE_URL = isDevelopment ? 'http://localhost:3000' : '';
+
+console.log('🌍 Environment:', isDevelopment ? 'Development' : 'Production');
+console.log('🔗 API Base:', API_BASE_URL || 'Same Origin (Vercel)');
 
 /**
  * Helper resolusi gambar:

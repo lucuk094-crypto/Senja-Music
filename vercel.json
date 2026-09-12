@@ -11,12 +11,24 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.ts"
+      "src": "/api/yt/feed",
+      "dest": "/api/feed.ts"
+    },
+    {
+      "src": "/api/yt/search",
+      "dest": "/api/search.ts"
+    },
+    {
+      "src": "/api/yt/lyrics",
+      "dest": "/api/lyrics.ts"
     },
     {
       "src": "/assets/(.*)",
       "dest": "/dist/assets/$1"
+    },
+    {
+      "src": "/(.*\\..+)",
+      "dest": "/dist/$1"
     },
     {
       "src": "/(.*)",
